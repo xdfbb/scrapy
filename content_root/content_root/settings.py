@@ -31,6 +31,7 @@ ROBOTSTXT_OBEY = True
 
 # Disable cookies (enabled by default)
 COOKIES_ENABLED = True
+COOKIES_DEBUG = True
 
 # Disable Telnet Console (enabled by default)
 # TELNETCONSOLE_ENABLED = False
@@ -39,7 +40,7 @@ COOKIES_ENABLED = True
 DEFAULT_REQUEST_HEADERS = {
     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
     'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8,en-US;q=0.7,zh-TW;q=0.6',
-    'Cookie': 'uab_collina=163151353794164122503283; abtest_env=product; zsxq_access_token=6D8CE288-3C7B-858B-8879-72C886F4A9B7_2C999066D114BC4F',
+    'User-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36'
 }
 
 # Enable or disable spider middlewares
@@ -81,8 +82,11 @@ DEFAULT_REQUEST_HEADERS = {
 
 # Enable and configure HTTP caching (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html#httpcache-middleware-settings
-# HTTPCACHE_ENABLED = True
+# HTTPCACHE_ENABLED = TrueDEFAULT_REQUEST_HEADERS
 # HTTPCACHE_EXPIRATION_SECS = 0
 # HTTPCACHE_DIR = 'httpcache'
 # HTTPCACHE_IGNORE_HTTP_CODES = []
 # HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+
+# Pass all responses with non-200 status codes contained in this list.
+HTTPERROR_ALLOWED_CODES = []
