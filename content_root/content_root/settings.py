@@ -12,11 +12,16 @@ BOT_NAME = 'content_root'
 SPIDER_MODULES = ['content_root.spiders']
 NEWSPIDER_MODULE = 'content_root.spiders'
 
+ZSXQ_GROUP_NAME = '分子保险报告厅'
+ZSXQ_DL_NUMBER_ONCE = 20
+ZSXQ_DL_CTIME_BEGIN = '2021-09-15'
+FILES_STORE = './out_document'
+
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 # USER_AGENT = 'content_root (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 # CONCURRENT_REQUESTS = 32
@@ -51,21 +56,26 @@ DEFAULT_REQUEST_HEADERS = {
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
-# DOWNLOADER_MIDDLEWARES = {
-#    'content_root.middlewares.ContentRootDownloaderMiddleware': 543,
-# }
+DOWNLOADER_MIDDLEWARES = {
+    'content_root.middlewares.ContentRootDownloaderMiddleware': 543,
+    # 'scrapy.contrib.downloadermiddleware.cookies.CookiesMiddleware': 700
+}
 
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html
-# EXTENSIONS = {
-#    'scrapy.extensions.telnet.TelnetConsole': None,
-# }
+EXTENSIONS = {
+    'scrapy.extensions.telnet.TelnetConsole': None,
+    'scrapy.extensions.logstats.LogStats': None,
+    'scrapy.extensions.corestats.CoreStats': None,
+    'scrapy.extensions.memusage.MemoryUsage': None
+
+}
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-# ITEM_PIPELINES = {
-#    'content_root.pipelines.ContentRootPipeline': 300,
-# }
+ITEM_PIPELINES = {
+    'content_root.pipelines.CustomFilePipeline': 543,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
@@ -90,3 +100,7 @@ DEFAULT_REQUEST_HEADERS = {
 
 # Pass all responses with non-200 status codes contained in this list.
 HTTPERROR_ALLOWED_CODES = []
+
+FILES_STORE = './out_document'
+
+LOG_LEVEL = 'INFO'
