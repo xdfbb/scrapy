@@ -77,7 +77,6 @@ class ContentRootDownloaderMiddleware:
         data = json.loads(response.body)
         if not data['succeeded']:
             logger.warning("cant process response, error code %d", data['code'])
-            sys.exit()
         # Must either;
         # - return a Response object
         # - return a Request object

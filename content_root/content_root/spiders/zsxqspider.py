@@ -74,6 +74,10 @@ class MySpider(scrapy.Spider):
 
     def __parseFile(self, response):
         data = json.loads(response.body)
+        if not data['succeeded']:
+            self.logger.warning("failed on getting file list, error code %d", data['code'])
+            return
+
         fInfos = data['resp_data']['files']
         for fInfo in fInfos:
             fileName = fInfo['file']['name']

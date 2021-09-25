@@ -14,7 +14,7 @@ NEWSPIDER_MODULE = 'content_root.spiders'
 
 ZSXQ_GROUP_NAME = '分子保险报告厅'
 ZSXQ_DL_NUMBER_ONCE = 20
-ZSXQ_DL_CTIME_BEGIN = '2021-09-15'
+ZSXQ_DL_CTIME_BEGIN = '2018-01-01'
 FILES_STORE = './out_document'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
@@ -74,7 +74,7 @@ EXTENSIONS = {
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    'content_root.pipelines.CustomFilePipeline': 543,
+    'content_root.pipelines.CustomFilePipeline': 1,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
